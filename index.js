@@ -72,7 +72,7 @@ run().catch(console.dir);
 
 
 app.get("/", (req, res) => {
-    res.send("Routw is working");
+    res.send("Server is working well. Good Job Man");
 });
 
 app.listen(port, (req,res) => {
