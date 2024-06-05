@@ -25,27 +25,27 @@ async function run() {
     const tuitionCollection = tuitionDB.collection("tuitionCollection");
 
 
-    app.post('/recipes', async (req,res) => {
+    app.post('/tuitions', async (req,res) => {
         const recipeData = req.body;
         const result = await tuitionCollection.insertOne(recipeData);
         res.send(result);
     })
 
 
-    app.get('/recipes', async (req,res) => {
+    app.get('/tuitions', async (req,res) => {
         const recipeData = tuitionCollection.find();
         const result = await recipeData.toArray();
         res.send(result);
     })
 
-    app.get('/recipes/:id', async (req,res) => {
+    app.get('/tuitions/:id', async (req,res) => {
         const id = req.params.id;
         const recipeData = await tuitionCollection.findOne({ _id: new ObjectId(id)});
         res.send(recipeData);
     })
 
 
-    app.patch('/recipes/:id', async (req,res) => {
+    app.patch('/tuitions/:id', async (req,res) => {
         const id = req.params.id;
         const updatedData = req.body;
         const result = await tuitionCollection.updateOne(
@@ -56,7 +56,7 @@ async function run() {
     })
 
 
-    app.delete('/recipes/:id', async (req,res) => {
+    app.delete('/tuitions/:id', async (req,res) => {
         const id = req.params.id;
         const result = await tuitionCollection.deleteOne(
             { _id: new ObjectId(id)});
