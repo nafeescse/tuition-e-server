@@ -75,7 +75,7 @@ app.get("/", (req, res) => {
     res.send("Server is working well. Good Job Man");
 });
 
-app.listen(port, (req,res) => {
+app.listen(port, '0.0.0.0', (req,res) => {
         console.log("app is listening on port : ", port);
     });
 
